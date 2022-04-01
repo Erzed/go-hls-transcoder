@@ -1,9 +1,11 @@
-package hls
+package hls_test
 
 import (
 	"os"
 	"path"
 	"testing"
+
+	"github.com/erzed/go-hls-transcoder"
 )
 
 func TestCmdExecuteFfmpeg(t *testing.T) {
@@ -13,7 +15,7 @@ func TestCmdExecuteFfmpeg(t *testing.T) {
 	srcPath := path.Join(base, "static", "sample.mov")
 	ffmpegPath := "/usr/local/bin/ffmpeg"
 
-	err := GenerateHLS(ffmpegPath, srcPath, targetPath, "480p")
+	err := hls.GenerateHLS(ffmpegPath, srcPath, targetPath, "480p", true)
 	if err != nil {
 		panic(err)
 	}
